@@ -175,7 +175,7 @@ nav a:hover {
 }
 
 .services-section {
-  padding: 80px 40px;
+  padding: 45px 40px;
   background-color: #fff;
   text-align: center;
   border-top: 2px solid #d6b86c;
@@ -325,7 +325,7 @@ nav a:hover {
 }
 
 .testimonials-section {
-  padding: 60px 40px;
+  padding: 45px 40px;
   background-color: #f9f9f9;
   text-align: center;
   border-top: 2px solid #d6b86c;
@@ -433,7 +433,7 @@ nav a:hover {
 }
 
 .our-works-section {
-  padding: 60px 40px;
+  padding: 45px 40px;
   background-color: #fff;
   text-align: center;
   border-top: 2px solid #d6b86c;
@@ -455,7 +455,7 @@ nav a:hover {
 
 .works-gallery img {
   width: 100%;
-  height: auto;
+  height: 300px;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
