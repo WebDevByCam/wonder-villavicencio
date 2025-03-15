@@ -91,27 +91,15 @@ nav a:hover {
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .hero {
     height: 60vh;
-  }
-}
-
-@media (max-width: 500px) {
-  .hero {
-    height: 50vh;
   }
 }
 
 @media (max-width: 400px) {
   .hero {
     height: 40vh;
-  }
-}
-
-@media (max-width: 350px) {
-  .hero {
-    height: 35vh;
   }
 }
 
