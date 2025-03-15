@@ -109,6 +109,12 @@ nav a:hover {
   }
 }
 
+@media (max-width: 350px) {
+  .hero {
+    height: 35vh;
+  }
+}
+
 .hero::after {
   content: "";
   position: absolute;
