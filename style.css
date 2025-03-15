@@ -84,6 +84,24 @@ nav a:hover {
   text-align: center;
   position: relative;
 }
+/* Hero Image Responsive */
+@media (max-width: 800px) {
+  .hero {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 50vh;
+  }
+}
 
 .hero::after {
   content: "";
