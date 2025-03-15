@@ -105,7 +105,7 @@ nav a:hover {
 
 @media (max-width: 400px) {
   .hero {
-    height: 45vh;
+    height: 40vh;
   }
 }
 
