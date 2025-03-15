@@ -91,15 +91,63 @@ nav a:hover {
   }
 }
 
+@media (max-width: 750px) {
+  .hero {
+    height: 72.5vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    height: 65vh;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    height: 57.5vh;
+  }
+}
+
 @media (max-width: 600px) {
   .hero {
-    height: 60vh;
+    height: 50vh;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero {
+    height: 42.5vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 35vh;
+  }
+}
+
+@media (max-width: 450px) {
+  .hero {
+    height: 30vh;
   }
 }
 
 @media (max-width: 400px) {
   .hero {
-    height: 40vh;
+    height: 25vh;
+  }
+}
+
+@media (max-width: 350px) {
+  .hero {
+    height: 22.5vh;
+  }
+}
+
+@media (max-width: 300px) {
+  .hero {
+    height: 20vh;
   }
 }
 
