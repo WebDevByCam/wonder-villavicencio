@@ -88,7 +88,9 @@ nav a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 100vh;
   height: 100vh;
+  max-height: 1200px; /* Evita alturas excesivas en pantallas muy grandes */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,70 +99,41 @@ nav a:hover {
   position: relative;
 }
 
-// Hero responsive
-@media (max-width: 800px) {
+// Hero responsive - Sistema mejorado con clamp()
+@media (max-width: 1200px) {
   .hero {
+    min-height: 90vh;
+    height: 90vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    min-height: 80vh;
     height: 80vh;
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .hero {
-    height: 72.5vh;
+    min-height: 70vh;
+    height: 70vh;
+    padding: 0 15px;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 576px) {
   .hero {
-    height: 65vh;
+    min-height: 60vh;
+    height: 60vh;
+    padding: 0 10px;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 480px) {
   .hero {
-    height: 57.5vh;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero {
+    min-height: 50vh;
     height: 50vh;
-  }
-}
-
-@media (max-width: 550px) {
-  .hero {
-    height: 42.5vh;
-  }
-}
-
-@media (max-width: 500px) {
-  .hero {
-    height: 35vh;
-  }
-}
-
-@media (max-width: 450px) {
-  .hero {
-    height: 30vh;
-  }
-}
-
-@media (max-width: 400px) {
-  .hero {
-    height: 25vh;
-  }
-}
-
-@media (max-width: 350px) {
-  .hero {
-    height: 22.5vh;
-  }
-}
-
-@media (max-width: 300px) {
-  .hero {
-    height: 20vh;
   }
 }
 
@@ -180,15 +153,17 @@ nav a:hover {
   z-index: 2;
   max-width: 800px;
   color: $black;
+  padding: 2rem 1rem;
 }
 
 .hero-content .subheading {
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px);
   color: #383838;
+  margin-bottom: 1rem;
 }
 
 .hero-content .main-heading {
-  font-size: 48px;
+  font-size: clamp(28px, 6vw, 48px);
   font-weight: 300;
   margin-bottom: 30px;
   display: inline-block;
@@ -210,10 +185,13 @@ nav a:hover {
 }
 
 .hero-content .description {
-  font-size: 18px;
+  font-size: clamp(16px, 2.2vw, 18px);
   color: #383838;
   margin-bottom: 30px;
   line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-button {
@@ -241,15 +219,41 @@ nav a:hover {
 
 @media (max-width: 768px) {
   .hero-content .main-heading {
-    font-size: 36px;
+    font-size: 28px;
   }
 
-  .hero-content .description {
-    font-size: 16px;
+  .card-content h3 {
+    font-size: 20px;
   }
 
-  .hero-content .subheading {
-    font-size: 16px;
+  .pride-service-container {
+    flex-direction: column;
+  }
+
+  .site-footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-section h4 {
+    margin-top: 1.5rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
   }
 }
 
@@ -806,6 +810,13 @@ nav a:hover {
   .footer-section {
     width: 100%;
     max-width: 100%;
+  }
+
+  .footer-section p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
   .social-icons {
