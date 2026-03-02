@@ -1,0 +1,214 @@
+:root{
+  --bg: #231f20;
+  --glass: rgba(255,255,255,0.03);
+  --muted: #bdbdbd;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  /* fondo oscuro de seguridad + el logo centrado como imagen de fondo */
+  background: var(--bg) url("assets/logo.png") no-repeat center center/cover;
+  color:#fff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:flex-start; /* mantener en la parte superior para evitar recortes */
+  justify-content:center;
+  padding-top:10px;
+}
+
+.container{
+  width:100%;
+  max-width:480px; /* ligeramente más ancho para desktop */
+  text-align:center;
+}
+.header{margin-bottom:18px}
+.logo{
+  width: clamp(140px, 30vw, 210px); /* desktop reducido 25% (max 210px) */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 16px;
+  border-radius: 18px;
+  padding: 12px; /* ligero ajuste para evitar overflow */
+  transition: transform .18s ease;
+}
+
+h1{font-size:1.5rem;margin:10px 0 8px;letter-spacing:0.2px}
+.service-desc{
+  margin:8px auto 12px;
+  color:#e6e6e6; /* ligeramente más claro */
+  font-size:0.95rem;
+  font-weight:500;
+  line-height:1.55; /* mayor interlineado para legibilidad */
+  max-width:420px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.tagline{color:var(--muted);font-size:0.95rem;margin:6px 0 18px;line-height:1.45;text-transform:uppercase;font-weight:700} 
+.links{display:flex;flex-direction:column;gap:16px;padding:0 8px} 
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:12px 16px;
+  border-radius:14px;
+  text-decoration:none;
+  color:inherit;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow:0 8px 22px rgba(0,0,0,0.45);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  font-weight:600;
+}
+.btn .bx{font-size:20px}
+.btn span{display:inline-block}
+.btn:hover,.btn:focus{transform:translateY(-3px);background:rgba(255,255,255,0.04);box-shadow:0 18px 40px rgba(0,0,0,0.5)}
+.btn:focus-visible{outline:3px solid rgba(255,255,255,0.06);outline-offset:2px}
+
+/* brand-colors for icons (keeps buttons dark & light) */
+.btn.whatsapp .bx{color:#25D366}
+.btn.facebook .bx{color:#1877F2}
+.btn.instagram .bx{color:#E1306C}
+.btn.whatsapp-soat .bx{color:#25D366}
+.btn.website .bx{color:#8ab4f8}
+.btn.map .bx{color:#ffb74d}
+.btn.email .bx{color:#ffd54f}
+
+.footer{margin-top:26px; margin-bottom: 10px; color:#9a9a9a;font-size:0.9rem} 
+.footer .author-link{color:#ffb74d;font-weight:700;text-decoration:none}
+.footer .author-link:hover,.footer .author-link:focus{color:#ffd54f;text-decoration:underline}
+
+/* Background base desactivado — dejamos solo las líneas SVG animadas */
+body::before{
+  content: "";
+  position:fixed;
+  inset:0;
+  z-index:-2; /* detrás del SVG de líneas */
+  pointer-events:none;
+  background: none;
+  animation: none;
+  opacity: 0;
+  filter: none;
+} 
+
+body::after{
+  content: "";
+  position:fixed;
+  inset:0;
+  z-index:-2; /* detrás del SVG de líneas */
+  pointer-events:none;
+  background: none;
+  animation: none;
+  opacity: 0;
+  filter: none;
+}
+
+@keyframes bg-drift{
+  0%{ transform: translate3d(-12px, -6px, 0) scale(1) }
+  50%{ transform: translate3d(12px, 6px, 0) scale(1.02) }
+  100%{ transform: translate3d(-12px, -6px, 0) scale(1) }
+}
+
+@keyframes lines-reveal{
+  0%{ background-size: cover, cover, 100% 0%; opacity:0 }
+  15%{ background-size: cover, cover, 100% 20%; opacity:0.35 }
+  45%{ background-size: cover, cover, 100% 70%; opacity:0.7 }
+  65%{ background-size: cover, cover, 100% 100%; opacity:0.9 }
+  85%{ background-size: cover, cover, 100% 100%; opacity:0.6 }
+  100%{ background-size: cover, cover, 100% 0%; opacity:0 }
+} 
+
+@keyframes bg-float{
+  0%{ transform: translate3d(-6px, -3px, 0) scale(1); opacity:0.6 }
+  50%{ transform: translate3d(6px, 3px, 0) scale(1.03); opacity:0.85 }
+  100%{ transform: translate3d(-6px, -3px, 0) scale(1); opacity:0.6 }
+}
+
+@keyframes bg-drift-mobile{
+  0%{ transform: translate3d(-8px, -4px, 0) scale(1) }
+  50%{ transform: translate3d(8px, 4px, 0) scale(1.015) }
+  100%{ transform: translate3d(-8px, -4px, 0) scale(1) }
+}
+
+@media (max-width:420px){
+  body{padding:28px 12px}
+  .logo{width: clamp(132px, 42vw, 176px); max-width:100%}
+
+  /* animación más visible en móvil (suave y natural) */
+  body::before{
+    background:
+      radial-gradient(700px 340px at 12% 14%, rgba(255,255,255,0.06), transparent 40%),
+      radial-gradient(640px 280px at 88% 76%, rgba(255,255,255,0.04), transparent 40%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 24px);
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-size: cover, cover, 100% 0%;
+    animation: bg-drift-mobile 20s cubic-bezier(.25,.46,.45,.94) infinite, lines-reveal 6s ease-in-out infinite;
+    opacity: 0.98;
+  }
+  body::after{
+    opacity: 0.9;
+    animation: bg-float 12s ease-in-out infinite;
+    filter: blur(10px);
+  }
+
+  .service-desc{font-size:0.92rem;line-height:1.45;margin:6px auto 10px}
+  .links{gap:14px;padding:0 6px}
+  .btn{font-size:15px;padding:14px 16px}
+
+  /* SVG lines overlay */
+  .bg-lines{opacity:0.12}
+}
+
+/* SVG lines (desktop & mobile) — per-line draw + fade L→R then R→L */
+.bg-lines{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1; /* encima del fondo, detrás del contenido */
+  pointer-events:none;
+  opacity:0.14;
+}
+.bg-lines line{
+  stroke: rgba(255,255,255,0.12);
+  stroke-width:0.6;
+  stroke-linecap:round;
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  opacity:0;
+  animation: draw-line 8s ease-in-out infinite alternate;
+  animation-fill-mode:both;
+}
+/* escalonar delays para que las líneas se dibujen/desaparezcan en secuencia L→R */
+.bg-lines line:nth-of-type(1){  animation-delay: 0s }
+.bg-lines line:nth-of-type(2){  animation-delay: 0.36s }
+.bg-lines line:nth-of-type(3){  animation-delay: 0.72s }
+.bg-lines line:nth-of-type(4){  animation-delay: 1.08s }
+.bg-lines line:nth-of-type(5){  animation-delay: 1.44s }
+.bg-lines line:nth-of-type(6){  animation-delay: 1.80s }
+.bg-lines line:nth-of-type(7){  animation-delay: 2.16s }
+.bg-lines line:nth-of-type(8){  animation-delay: 2.52s }
+.bg-lines line:nth-of-type(9){  animation-delay: 2.88s }
+.bg-lines line:nth-of-type(10){ animation-delay: 3.24s }
+.bg-lines line:nth-of-type(11){ animation-delay: 3.60s }
+.bg-lines line:nth-of-type(12){ animation-delay: 3.96s }
+
+@keyframes draw-line{
+  0%{ stroke-dashoffset:120; opacity:0 }
+  35%{ stroke-dashoffset:0; opacity:1 }
+  70%{ opacity:0.75 }
+  100%{ stroke-dashoffset:0; opacity:0 }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .bg-lines{ opacity:0.08 }
+  .bg-lines line{ animation:none; stroke-dashoffset:0; opacity:0.08 }
+}
+@media (prefers-reduced-motion:reduce){
+  .btn{transition:none}
+  body::before{animation:none}
+  body::after{animation:none}
+}
