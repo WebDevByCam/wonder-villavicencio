@@ -3,7 +3,14 @@
   # generate the Nuxt site then include the static 'link' folder in the output
   command = "npm run generate && cp -r link dist/link"
 
-# when the host is link.wondervillavicencio.com, serve the static folder
+# root path on link host should go to the static index
+[[redirects]]
+  from = "/"
+  to = "/link/index.html"
+  status = 200
+  conditions = { Host = ["link.wondervillavicencio.com"] }
+
+# all other paths on link host also serve from link folder
 [[redirects]]
   from = "/*"
   to = "/link/:splat"
