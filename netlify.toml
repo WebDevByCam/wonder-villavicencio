@@ -2,7 +2,15 @@
   publish = "dist"
   command = "npm run generate"
 
+# default redirect for the Nuxt app (main site)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# when the host is link.wondervillavicencio.com, serve the static folder
+[[redirects]]
+  from = "/*"
+  to = "/link/:splat"
+  status = 200
+  conditions = { Host = ["link.wondervillavicencio.com"] }
