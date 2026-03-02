@@ -1,8 +1,11 @@
 :root{
   /* fondo oscuro que coincide con el color de fondo del logo */
   --bg: #000000;
-  --glass: rgba(255,255,255,0.03);
+  /* mayor opacidad para los botones glass y más contraste con fondo negro */
+  --glass: rgba(255,255,255,0.12);
   --muted: #bdbdbd;
+  /* color de trazo para las líneas animadas */
+  --line-stroke: rgba(255,255,255,0.3);
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -26,13 +29,12 @@ body{
 }
 .header{margin-bottom:18px}
 .logo{
-  width: clamp(140px, 30vw, 210px); /* desktop reducido 25% (max 210px) */
+  /* slightly smaller logo with a bit of padding around */
+  width: clamp(140px, 25vw, 200px);
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto 16px;
-  border-radius: 18px;
-  padding: 12px; /* ligero ajuste para evitar overflow */
+  margin: 30px auto 30px;
   transition: transform .18s ease;
 }
 
@@ -46,7 +48,41 @@ h1{font-size:1.5rem;margin:10px 0 8px;letter-spacing:0.2px}
   max-width:420px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-.tagline{color:var(--muted);font-size:0.95rem;margin:6px 0 18px;line-height:1.45;text-transform:uppercase;font-weight:700} 
+.tagline{
+  color:var(--muted);
+  font-size:1.1rem;
+  margin:6px 0 18px;
+  line-height:1.4;
+  text-transform:none;
+  font-weight:800;
+  font-style:italic;
+  letter-spacing:1px;
+}
+
+/* resaltar el nombre de la marca dentro del lema */
+.brand-name{
+  display:inline-block;
+  font-size:1.4rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin:0.3em 0; /* espacio arriba y abajo para separar del resto */
+  /* make text transparent so gradient shows through */
+  color:transparent;
+  /* narrow gold shine using color extracted from logo */
+  background: linear-gradient(90deg, #ffffff 30%, #c29a3c
+ 50%, #ffffff 80%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gold-wave 4s ease-in-out infinite;
+}
+
+@keyframes gold-wave{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+} 
 .links{display:flex;flex-direction:column;gap:16px;padding:0 8px} 
 .btn{
   display:flex;
@@ -58,8 +94,8 @@ h1{font-size:1.5rem;margin:10px 0 8px;letter-spacing:0.2px}
   text-decoration:none;
   color:inherit;
   background:var(--glass);
-  border:1px solid rgba(255,255,255,0.04);
-  box-shadow:0 8px 22px rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.1); /* borde más visible */
+  box-shadow:0 8px 22px rgba(0,0,0,0.65); /* sombra más intensa */
   transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
   font-weight:600;
 }
@@ -135,7 +171,8 @@ body::after{
 
 @media (max-width:420px){
   body{padding:28px 12px}
-  .logo{width: clamp(132px, 42vw, 176px); max-width:100%}
+  /* mobile: adjust logo smaller with padding */
+  .logo{width: clamp(140px, 50vw, 220px); max-width:100%;}
 
   /* animación más visible en móvil (suave y natural) */
   body::before{
@@ -173,7 +210,7 @@ body::after{
   opacity:0.14;
 }
 .bg-lines line{
-  stroke: rgba(255,255,255,0.12);
+  stroke: var(--line-stroke);
   stroke-width:0.6;
   stroke-linecap:round;
   stroke-dasharray: 120;
