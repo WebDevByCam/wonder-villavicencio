@@ -1,6 +1,7 @@
 [build]
   publish = "dist"
-  command = "npm run generate"
+  # generate the Nuxt site then include the static 'link' folder in the output
+  command = "npm run generate && cp -r link dist/link"
 
 # when the host is link.wondervillavicencio.com, serve the static folder
 [[redirects]]
