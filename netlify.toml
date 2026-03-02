@@ -1,7 +1,7 @@
 [build]
   publish = "dist"
   # generate the Nuxt site then include the static 'link' folder in the output
-  command = "npm run generate && cp -r link dist/link"
+  command = "npm run generate && cp -r src/link dist/link"
 
 # root path on link host should go to the static index
 [[redirects]]
