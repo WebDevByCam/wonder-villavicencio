@@ -1,5 +1,6 @@
 :root{
-  --bg: #231f20;
+  /* fondo oscuro que coincide con el color de fondo del logo */
+  --bg: #000000;
   --glass: rgba(255,255,255,0.03);
   --muted: #bdbdbd;
 }
@@ -7,8 +8,7 @@
 html,body{height:100%}
 body{
   margin:0;
-  /* fondo oscuro de seguridad + el logo centrado como imagen de fondo */
-  background: var(--bg) url("assets/logo.png") no-repeat center center/cover;
+  background: var(--bg);
   color:#fff;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing:antialiased;
